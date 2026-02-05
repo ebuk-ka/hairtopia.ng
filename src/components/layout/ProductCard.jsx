@@ -1,55 +1,69 @@
 import { products } from "../../data/Products";
 
-const featured = products.slice(0, 12); // show first 4 products
+const featured = products.slice(0, 12);
 
 const ProductCard = () => {
   return (
-    <section className="py-24 bg-white" id = "wigs">
+    <section className="py-28 bg-white" id="wigs">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-20">
           <p className="text-sm tracking-widest uppercase text-black/60">
             Our Collection
           </p>
-          <h2 className="mt-3 text-3xl md:text-4xl font-light text-black">
+          <h2 className="mt-4 text-4xl md:text-5xl font-light text-black tracking-wide">
             Featured Wigs
           </h2>
         </div>
 
         {/* Product Grid */}
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           {featured.map((product) => (
             <div
               key={product.id}
-              className="group cursor-pointer flex flex-col h-full bg-white rounded-3xl shadow-md overflow-hidden transition-transform duration-300 hover:scale-105"
+              className="group flex flex-col rounded-3xl border border-black/5 bg-white overflow-hidden transition hover:shadow-xl"
             >
               {/* Image */}
-              <div className="overflow-hidden rounded-t-3xl">
+              <div className="relative overflow-hidden">
                 <img
                   src={product.images[0]}
                   alt={product.name}
-                  className="h-[350px] w-full object-cover transition duration-500 group-hover:scale-105"
+                  className="h-[360px] w-full object-cover transition duration-700 group-hover:scale-105"
                 />
+
+                <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition" />
               </div>
 
-              {/* Info + Button */}
-              <div className="flex-1 flex flex-col justify-between p-6 text-center">
-                <div>
-                  <h3 className="text-lg font-medium text-black">{product.name}</h3>
+              {/* Content */}
+              <div className="flex flex-col flex-1 px-5 pt-6 pb-6 text-center">
+                <h3 className="text-lg font-medium text-black tracking-wide">
+                  {product.name}
+                </h3>
 
-                  {/* Sizes & Prices */}
-                  {product.sizes && product.sizes.map((item, index) => (
-                    <p key={index} className="text-black/60 mt-1">
-                      {item.size} — ₦{typeof item.price === "number" ? item.price.toLocaleString() : item.price}
+                {/* Sizes */}
+                <div className="mt-3 space-y-1 flex-1">
+                  {product.sizes?.map((item, index) => (
+                    <p key={index} className="text-sm text-black/60">
+                      {item.size} — ₦{item.price.toLocaleString()}
                     </p>
                   ))}
                 </div>
 
-                {/* Shop Now Button */}
-                <button className="mt-6 w-full rounded-full bg-black px-6 py-3 text-sm font-medium text-white shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-lg">
+                {/* CTA */}
+                <a
+                  href={`https://wa.me/2348012345678?text=${encodeURIComponent(
+                    `Hello Hairtopia, I want to order the ${product.name}`
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 inline-flex items-center justify-center
+                  rounded-full bg-black px-6 py-3
+                  text-sm font-medium text-white
+                  transition hover:opacity-90"
+                >
                   Shop Now
-                </button>
+                </a>
               </div>
             </div>
           ))}
