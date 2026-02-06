@@ -70,10 +70,11 @@ const HeroCarousel = () => {
               {slides[index].text}
             </p>
 
+            {/* SHOP NOW BUTTON */}
             <a
-              href={`https://wa.me/2348083714455?text=${encodeURIComponent(
-                    `Hello Hairtopia, I want to order the ${product.name}`
-                  )}`}
+              href="https://wa.me/2348083714455?text=Hello%20Hairtopia%2C%20I%20want%20to%20make%20an%20order"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center
               rounded-full bg-black px-8 py-4
               text-sm font-medium text-white
