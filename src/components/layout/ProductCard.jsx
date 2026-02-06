@@ -52,7 +52,7 @@ const ProductCard = () => {
 
                 {/* CTA */}
                 <a
-                  href={`https://wa.me/2348012345678?text=${encodeURIComponent(
+                  href={`https://wa.me/2348083714455?text=${encodeURIComponent(
                     `Hello Hairtopia, I want to order the ${product.name}`
                   )}`}
                   target="_blank"
