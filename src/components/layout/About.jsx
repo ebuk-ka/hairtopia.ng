@@ -16,9 +16,7 @@ const About = () => {
           <p  className="text-gray-700 text-lg lg:text-x3 leading-relaxed">
             Where hair fantasies come alive.
           </p>
-          <button className="bg-black text-white px-6 py-3 rounded-full text-sm lg:text-base font-medium hover:scale-105 transition-transform duration-300">
-            Learn More
-          </button>
+          
         </div>
 
         {/* IMAGE */}
