@@ -71,9 +71,9 @@ const HeroCarousel = () => {
             </p>
 
             <a
-              href="https://wa.me/2348012345678?text=Hello%20Hairtopia,%20I%20want%20to%20shop%20your%20wigs"
-              target="_blank"
-              rel="noopener noreferrer"
+              href={`https://wa.me/2348083714455?text=${encodeURIComponent(
+                    `Hello Hairtopia, I want to order the ${product.name}`
+                  )}`}
               className="inline-flex items-center justify-center
               rounded-full bg-black px-8 py-4
               text-sm font-medium text-white
